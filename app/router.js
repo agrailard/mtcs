@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('emby');
+  this.route('seedbox');
+  this.route('fichiers');
 });
 
 export default Router;

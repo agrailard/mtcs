@@ -7,15 +7,17 @@ A short introduction of this app could easily go here.
 
 You will need the following things properly installed on your computer.
 
-* [Git](https://git-scm.com/)
+* [Git](https://git-for-windows.github.io/)
 * [Node.js](https://nodejs.org/) (with NPM)
 * [Bower](https://bower.io/)
+	* npm install -g bower
 * [Ember CLI](https://ember-cli.com/)
+	* npm install -g ember-cli@2.11
 * [PhantomJS](http://phantomjs.org/)
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/agrailard/mtcs.git
 * `cd mtcs`
 * `npm install`
 * `bower install`
