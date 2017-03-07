@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('emby');
   this.route('seedbox');
   this.route('fichiers');
+  this.route('calendrier');
 });
 
 export default Router;

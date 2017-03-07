@@ -1,0 +1,12 @@
+@import "ember-power-calendar";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+#container {
+	max-width:1000px;}
+
+.bloc-gauche {
+	width:40%;
+}
+.bloc-droite {
+	width:60%;
+}
