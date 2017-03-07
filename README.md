@@ -17,7 +17,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone https://github.com/agrailard/mtcs.git
+* `git clone https://github.com/agrailard/mtcs.git`
 * `cd mtcs`
 * `npm install`
 * `bower install`
