@@ -1,17 +1,24 @@
-
-{{#power-calendar
-  locale="fr"
-  selected=selected
-  center=center
-  onSelect=(action (mut selected) value="moment")
-  onCenterChange=(action (mut center) value="date") as |calendar|}}
-  <div class="row">
-	  <div class="col-lg-3">
-		  {{calendar.nav}}
-		  {{calendar.days}}
-	  </div>
-	  <div class="col-lg-9">
-		<h2 class="text-center">{{moment-format selected 'dddd D MMMM'}}</h2>
-	  </div>
+<div class="row">
+  <div class="col-lg-3">
+	{{#power-calendar
+	  locale="fr"
+	  selected=selected
+	  center=center
+	  onSelect=(action "onSelectDay" value="moment")
+	  onCenterChange=(action (mut center) value="date") as |calendar|}}
+			  {{calendar.nav}}
+			  {{calendar.days}}
+	{{/power-calendar}}
   </div>
-{{/power-calendar}}
+  <div class="col-lg-9">
+	<h2 class="text-center">{{model.date.jour}}</h2>
+	{{creation-evenement 
+		visible=model.evenements.creation.visible
+		clicNouveau=(action 'nouvelEvenement')
+		clicQuitter=(action 'quitterNouvelEvenement')}}
+	{{#each model.evenements as |event|}}
+		<h3>{{event.titre}}</h3>
+		<p>{{event.description}}</p>
+	{{/each}}
+  </div>
+</div>
