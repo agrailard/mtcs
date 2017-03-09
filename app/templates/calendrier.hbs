@@ -13,9 +13,8 @@
   <div class="col-lg-9">
 	<h2 class="text-center">{{model.date.jour}}</h2>
 	{{creation-evenement 
-		visible=model.evenements.creation.visible
-		clicNouveau=(action 'nouvelEvenement')
-		clicQuitter=(action 'quitterNouvelEvenement')}}
+		visible=false
+		clicSauvegarder=(action 'sauvegarderNouvelEvenement' form-group)}}
 	{{#each model.evenements as |event|}}
 		<h3>{{event.titre}}</h3>
 		<p>{{event.description}}</p>

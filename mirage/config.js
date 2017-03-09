@@ -1,38 +1,17 @@
 export default function() {
   this.namespace = '/api';
 
-  let evenements = [{
-      type: 'evenement',
-      id: 1,
-      attributes: {
-        date: '20170310',
-        titre: 'Un Evenement',
-        description: 'description de l\'évènement'
-      }
-    }, {
-      type: 'evenement',
-      id: 2,
-      attributes: {
-        date: '20170310',
-        titre: 'Un autre Evenement',
-        description: 'description de l\'autre évènement'
-      }
-    }, {
-      type: 'evenement',
-      id: 2,
-      attributes: {
-        date: '20170308',
-        titre: 'Evenement',
-        description: 'super description de l\'évènement'
-      }
-    }
-  ];
+  this.get('/evenements', (schema, request) => {
+    return schema.evenements.where({date: request.queryParams.date});
+    //return schema.evenements.all();
+  });
 
-  this.get('/evenements', function(db, request) {
-    let filtre = [];
-    filtre = evenements.filter(function(i) {
-      return i.attributes.date.indexOf(request.queryParams.date) !== -1;
+  this.get('/evenements/creation', (schema, request) => {
+    return schema.evenements.create({
+      date: request.queryParams.date,
+      titre: request.queryParams.titre,
+      description: request.queryParams.description
     });
-    return {data: filtre};
+    //return schema.evenements.all();
   });
 }

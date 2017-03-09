@@ -1,11 +1,12 @@
 <button id="creation-evenement-btn" {{action "nouveau"}} hidden={{visible}}>Nouvel Evenement</button>
 
 {{#if visible}}
+<button id="sauvegarder-evenement-btn" {{action "sauvegarder"}}>Sauvegarder</button>
 <button id="quitter-evenement-btn" {{action "quitter"}}>Quitter</button>
 <div class="form-group">
-	<label for="creation-event-titre">Titre:</label>
-  	<input type="text" class="form-control" id="creation-event-titre">
+	<label id="creation-event-titre-label" for="creation-event-titre">Titre:</label>
+	{{input type="text" class="form-control" name="creation-event-titre"}}
   	<label for="creation-event-description">Description:</label>
-  	<textarea class="form-control" rows="5" id="creation-event-description"></textarea>
+  	{{textarea class="form-control" rows="5" name="creation-event-description"}}
 </div>
 {{/if}}

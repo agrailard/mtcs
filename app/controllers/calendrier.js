@@ -13,6 +13,14 @@ export default Ember.Controller.extend({
 		},
 		quitterNouvelEvenement() {
 			this.set('model.evenements.creation.visible', false);
+		},
+		sauvegarderNouvelEvenement(event) {
+			store.createRecord('post', {
+				titre: event.titre,
+				description: event.description,
+				date: event.date
+			});
+			return true;
 		}
 	}
 });
