@@ -8,18 +8,13 @@ export default Ember.Controller.extend({
 			this.set('selected', moments);
 			this.set('model.evenements', this.store.query('evenement', {date: this.get('model.date.id')}));
 		},
-		nouvelEvenement() {
-			this.set('model.evenements.creation.visible', true);
-		},
-		quitterNouvelEvenement() {
-			this.set('model.evenements.creation.visible', false);
-		},
-		sauvegarderNouvelEvenement(event) {
-			store.createRecord('post', {
-				titre: event.titre,
-				description: event.description,
-				date: event.date
+		sauvegarderNouvelEvenement() {
+			this.store.createRecord('evenement', {
+				titre: this.get('model.creation.titre'),
+				description: this.get('model.creation.description'),
+				date: this.get('model.date.id')
 			});
+			this.send('reloadModel');
 			return true;
 		}
 	}

@@ -7,23 +7,17 @@ export default Ember.Component.extend({
 		},
 		quitter: function() {
 			this.set('visible', false);
+			this.set('componentModel.titre', '');
+			this.set('componentModel.description', '');
 		},
 		sauvegarder: function() {
-			alert('pas encore implémenté');
-			/*TODO: à revoir
-			alert(this.$('creation-event-titre'));
-			if(this.get('creation-event-titre') !== undefined && this.get('creation-event-titre') !== '') {
-				if(this.get('creation-event-description') !== undefined && this.get('creation-event-description') !== '') {
-					const event = {
-						titre: this.get('creation-event-titre'),
-						description: this.get('creation-event-description'),
-						date: this.get('model.date.id')
-					};
+			if(this.get('componentModel.titre') !== null && this.get('componentModel.titre') !== '') {
+				if(this.get('componentModel.description') !== null && this.get('componentModel.description') !== '') {
 					if (this.clicSauvegarder()) {
-						this.set('visible', false);
+						this.send('quitter');
 					}
 				}
-			}*/
+			}
 		}
 	}
 	

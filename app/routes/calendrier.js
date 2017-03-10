@@ -15,6 +15,15 @@ export default Ember.Route.extend({
 
 		model.evenements = this.store.query('evenement', {date: model.date.id});
 
+		model.creation = {};
+		model.creation.titre = null;
+		model.creation.description = null;
+
 		return model;
+	},
+	actions: {
+		reloadModel: function() {
+			this.refresh();
+		}
 	}
 });

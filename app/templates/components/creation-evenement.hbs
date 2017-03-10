@@ -1,12 +1,16 @@
 <button id="creation-evenement-btn" {{action "nouveau"}} hidden={{visible}}>Nouvel Evenement</button>
 
 {{#if visible}}
-<button id="sauvegarder-evenement-btn" {{action "sauvegarder"}}>Sauvegarder</button>
-<button id="quitter-evenement-btn" {{action "quitter"}}>Quitter</button>
 <div class="form-group">
-	<label id="creation-event-titre-label" for="creation-event-titre">Titre:</label>
-	{{input type="text" class="form-control" name="creation-event-titre"}}
-  	<label for="creation-event-description">Description:</label>
-  	{{textarea class="form-control" rows="5" name="creation-event-description"}}
+	<form id="creation-event" {{action "sauvegarder" on="submit"}}>
+		<button type="submit" form="creation-event" id="sauvegarder-evenement-btn">Sauvegarder</button>
+		<button id="quitter-evenement-btn" {{action "quitter"}}>Quitter</button>
+
+		<label id="creation-event-titre-label" for="{{concat elementId '-titre'}}">Titre:</label>
+		{{input type="text" class="form-control" id=(concat elementId '-titre') value=(mut componentModel.titre)}}
+
+	  	<label for="{{concat elementId '-description'}}">Description:</label>
+	  	{{textarea class="form-control" rows="5" id=(concat elementId '-description') value=(mut componentModel.description)}}
+	</form>
 </div>
 {{/if}}
